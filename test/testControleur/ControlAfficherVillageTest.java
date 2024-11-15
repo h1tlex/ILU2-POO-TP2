@@ -36,10 +36,18 @@ class ControlAfficherVillageTest {
 	void testDonnerNomsVillageois() {
 		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
 		assertNotNull(controlAfficherVillage.donnerNomsVillageois().length,"Village ne peut pas être vide");
-		assertTrue(controlAfficherVillage.donnerNomsVillageois().length == 1);
-		assertFalse(controlAfficherVillage.donnerNomsVillageois().length == 0);
-		assertTrue(controlAfficherVillage.donnerNomsVillageois().length <= nbVillageoisMaximum);
-		assertFalse(controlAfficherVillage.donnerNomsVillageois().length > nbVillageoisMaximum);
+		assertEquals(controlAfficherVillage.donnerNomsVillageois()[0],"Abraracourcix");
+		
+		Gaulois gaulois = new Gaulois("Obelix",10);
+		village.ajouterHabitant(gaulois);
+		controlAfficherVillage = new ControlAfficherVillage(village);
+
+		assertEquals(controlAfficherVillage.donnerNomsVillageois()[1],"Obelix");
+		assertNotEquals(controlAfficherVillage.donnerNomsVillageois()[1],"n'existe pas");
+		
+
+
+
 		
 	}
 	
@@ -57,11 +65,15 @@ class ControlAfficherVillageTest {
 		assertEquals(controlAfficherVillage.donnerNbEtals(),nbEtal);
 		assertNotEquals(controlAfficherVillage.donnerNbEtals(),-1);
 		assertNotEquals(controlAfficherVillage.donnerNbEtals(),0);
-		assertFalse(controlAfficherVillage.donnerNbEtals()<0);
-		assertTrue(controlAfficherVillage.donnerNbEtals()>=0);
-		assertFalse(controlAfficherVillage.donnerNbEtals()<nbEtal);
-		assertTrue(controlAfficherVillage.donnerNbEtals()==nbEtal);
-		assertFalse(controlAfficherVillage.donnerNbEtals()>nbEtal);
+
+		village = new Village("le village des irréductibles", 10, 0);
+		controlAfficherVillage = new ControlAfficherVillage(village);
+		
+		assertEquals(controlAfficherVillage.donnerNbEtals(),0);
+
+		
+
+
 
 	}
 }

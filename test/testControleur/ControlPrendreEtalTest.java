@@ -61,12 +61,8 @@ class ControlPrendreEtalTest {
 		Gaulois gaulois = new Gaulois("Obelix", 10);
 		village.ajouterHabitant(gaulois);
 		
-		System.out.println(controlPrendreEtal.prendreEtal("n'existe pas", "rien", 0));
-		System.out.println(controlPrendreEtal.prendreEtal("Abraracourcix", "potion", 10));
-		System.out.println(controlPrendreEtal.prendreEtal("Obelix", "fleurs", 10));
-		
-		assertFalse(controlPrendreEtal.prendreEtal("n'existe pas", "rien", 0) == 1);
-		assertTrue(controlPrendreEtal.prendreEtal("n'existe pas", "rien", 0) == -1);
+		assertNotEquals(controlPrendreEtal.prendreEtal("n'existe pas", "rien", 0), 1);
+		assertEquals(controlPrendreEtal.prendreEtal("n'existe pas", "rien", 0),-1);
 		assertNotEquals(controlPrendreEtal.prendreEtal("Abraracourcix", "potion", 10),-1);
 		assertNotEquals(controlPrendreEtal.prendreEtal("Obelix", "fleurs", 10),-1);
 
