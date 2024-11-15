@@ -27,7 +27,7 @@ class ControlTrouverEtalVendeurTest {
 		abraracourcix = new Chef("Abraracourcix",10,village);
 		village.setChef(abraracourcix);
 		village.ajouterHabitant(gaulois);
-		etal.occuperEtal(gaulois, "fleurs", 10);
+		village.installerVendeur(gaulois,"fleurs", 5);
 	}
 
 	@Test
