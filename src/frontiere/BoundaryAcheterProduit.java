@@ -52,12 +52,13 @@ public class BoundaryAcheterProduit {
 					vendeurChoisi = Clavier.entrerEntier("Choisir un vendeur de la liste :\n");
 				}while(vendeurChoisi > vendeurs.length || vendeurChoisi < 1); // boucle erreur input
 				
+				
 				// trouver etal vendeur
 				etal = controlAcheterProduit.trouverEtalVendeur(vendeurs[vendeurChoisi-1]);
 				// choisir nombre de produit à acheter
 				int nbProduitAcheter = Clavier.entrerEntier("Choisir combien de " + produit + "à acheter\n");
 				// acheter produit
-				etal.acheterProduit(nbProduitAcheter);
+				controlAcheterProduit.acheterProduit(vendeurs[vendeurChoisi-1].getNom(), nbProduitAcheter);
 				
 				System.out.println("Produits acheter avec success ! \n");
 

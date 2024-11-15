@@ -16,7 +16,7 @@ class ControlEmmenagerTest {
 	
 	@BeforeEach
 	public void initialiserSituation() {
-		System.out.println("Initialisation...\n");
+		System.out.println("Initialisation testControlEmmenager...\n");
 		village = new Village("le village des irréductibles", 10, 5);
 		abraracourcix = new Chef("Abraracourcix",10,village);
 		village.setChef(abraracourcix);

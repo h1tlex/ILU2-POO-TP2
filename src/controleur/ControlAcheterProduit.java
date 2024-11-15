@@ -9,6 +9,9 @@ public class ControlAcheterProduit {
 	private Village village;
 	private ControlTrouverEtalVendeur controlTrouverEtalVendeur;
 	private ControlVerifierIdentite controlVerifierIdentite;
+	private Etal etal;
+	private Gaulois gaulois;
+
 
 	public ControlAcheterProduit(ControlVerifierIdentite controlVerifierIdentite,
 			ControlTrouverEtalVendeur controlTrouverEtalVendeur,
@@ -30,8 +33,20 @@ public class ControlAcheterProduit {
 		return village.rechercherVendeursProduit(produit);
 	}
 	
-	public Etal trouverEtalVendeur(Gaulois nomVendeur) {
-		return village.rechercherEtal(nomVendeur);
+	public Etal trouverEtalVendeur(Gaulois gaulois) {
+		return village.rechercherEtal(gaulois);
+	}
+	
+	public int acheterProduit(String nomVendeur,int nbProduit) {
+		boolean vendeurValide = verifierIdentite(nomVendeur);	
+		gaulois = village.trouverHabitant(nomVendeur);
+		etal = trouverEtalVendeur(gaulois);
+		if(vendeurValide) {
+			if(etal != null) {
+			return etal.acheterProduit(nbProduit);
+			}
+		}
+		return 0;
 	}
 	
 	
